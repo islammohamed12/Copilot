@@ -47,7 +47,8 @@ export function UserMenu() {
                 className="flex w-full cursor-pointer items-center rounded-md border bg-background p-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
               >
                 <div className="size-8 overflow-hidden rounded-full border">
-                  <Image
+                  {/* Replaced next/image with standard img to avoid domain restrictions */}
+                  <img
                     className="size-full object-cover"
                     src={user.image ? `${user.image}` : ''}
                     alt={user.name ?? ''}
