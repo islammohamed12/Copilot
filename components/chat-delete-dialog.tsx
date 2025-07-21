@@ -53,7 +53,9 @@ export function ChatDeleteDialog({
                 try {
                   await deleteChat(chat.id);
                   toast.success('Chat deleted', { duration: 2000 });
-                  params.id === chat.id && router.push('/');
+                  if (params && params.id === chat.id) {
+                    router.push('/');
+                  }
                   onOpenChange(false);
                 } catch (err: any) {
                   toast.error(err.message);
