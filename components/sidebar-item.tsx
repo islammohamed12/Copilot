@@ -26,7 +26,7 @@ export function SidebarItem({ chat }: SidebarItemProps) {
         'group relative flex h-9 items-center rounded-md p-2 hover:bg-background hover:shadow-sm dark:hover:bg-accent',
         {
           'bg-background shadow-sm dark:bg-accent':
-            chat.id === params.id || isOpen
+            (params && chat.id === params.id) || isOpen
         }
       )}
     >
@@ -37,7 +37,7 @@ export function SidebarItem({ chat }: SidebarItemProps) {
         href={`/chat/${chat.id}`}
         className={cn(
           'w-full flex-1 items-center justify-start truncate p-1.5 text-sm',
-          { 'font-medium': chat.id === params.id }
+          { 'font-medium': params && chat.id === params.id }
         )}
       >
         {chat.title}
@@ -45,7 +45,7 @@ export function SidebarItem({ chat }: SidebarItemProps) {
       <SidebarActions
         className={cn(
           'absolute right-2 z-10 group-hover:opacity-100',
-          chat.id === params.id || isOpen ? 'opacity-100' : 'opacity-0'
+          chat.id === (params && params.id) || isOpen ? 'opacity-100' : 'opacity-0'
         )}
         chat={chat}
         onOpenChange={setIsOpen}
