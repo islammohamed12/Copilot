@@ -50,7 +50,9 @@ export function ClearHistoryDialog({
                 try {
                   await clearChats();
                   toast.success('All chat deleted', { duration: 2000 });
-                  params.id && router.push('/');
+                  if (params && params.id) {
+                    router.push('/');
+                  }
                   onOpenChange(false);
                 } catch (err: any) {
                   toast.error(err.message);
